@@ -20,6 +20,10 @@ cache:
     directories:
         - vendor
         - $HOME/.composer/cache
+addons:
+    code_climate:
+        repo_token:
+            secure: "Gwjor1uIk7PB1Agg/wkw+fiKVEmZP5HzJjWcfIEcSJHfcyQobGyDh1/ftzA4FZgoCVpws8B4Eyv3e6gK+BkXDAnmrMThRaTENqm19Hi04je94NPXu35rr/0XflfclMFkB0KnuVmr2MmcCbNjkwz8fEyozugNpfC1jeDEDpEHxzc="
 
 install:
     - travis_retry composer self-update
@@ -34,3 +38,5 @@ script:
 after_script:
     - travis_retry wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover tests/codeception/_output/coverage.xml
+    - ./vendor/bin/test-reporter --stdout --coverage-report tests/codeception/_output/coverage.xml > codeclimate.json
+    - "curl --verbose -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"

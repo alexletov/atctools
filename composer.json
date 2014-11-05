@@ -27,7 +27,8 @@
         "codeception/codeception": "2.0.*",
         "codeception/specify": "*",
         "codeception/verify": "*",
-        "fxp/composer-asset-plugin": "1.0.*@dev"
+        "fxp/composer-asset-plugin": "1.0.*@dev",
+        "codeclimate/php-test-reporter": "dev-master"
     },
     "config": {
         "process-timeout": 1800
