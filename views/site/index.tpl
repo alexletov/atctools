@@ -1,7 +1,5 @@
-<?php
-/* @var $this yii\web\View */
-$this->title = 'My Yii Application';
-?>
+{set layout="main.tpl"}
+{set title="Main page"}
 <div class="site-index">
 
     <div class="jumbotron">

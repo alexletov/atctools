@@ -49,7 +49,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index.tpl');
     }
 
     public function actionLogin()
@@ -62,7 +62,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            return $this->render('login', [
+            return $this->render('login.tpl', [
                 'model' => $model,
             ]);
         }
@@ -83,7 +83,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
-            return $this->render('contact', [
+            return $this->render('contact.tpl', [
                 'model' => $model,
             ]);
         }
@@ -91,6 +91,6 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        return $this->render('about');
+        return $this->render('about.tpl');
     }
 }

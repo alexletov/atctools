@@ -38,6 +38,13 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'view' => [
+            'renderers' => [
+                'tpl' => [
+                    'class' => 'yii\smarty\ViewRenderer',
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];
